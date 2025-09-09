@@ -9,28 +9,42 @@ function orderFrequency(text) {
         }
     }
     const dup = [];
+    const uni = [];
     for (const c in frequency) {
-        if (frequency.hasOwnProperty(c)) {
-            dup.push({ char: c, count: frequency[c] });
+        const item = { char: c, count: frequency[c]};
+        if (item.count > 1){
+            dup[dup.length] = item;
+        } else {
+            uni[uni.length] = item;
         }
     }
-    for (let i = 0; i < dup.length; i++) {
-        for (let j = 0; j < dup.length - 1; j++) {
-            if (dup[j].count < dup[j + 1].count) {
-                const temp = dup[j];
-                dup[j] = dup[j + 1];
-                dup[j + 1] = temp;
+    function sort(arr){
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length - 1; j++) {
+                if (arr[j].count < arr[j + 1].count) {
+                    const temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
             }
         }
     }
+    
+    sort(dup);
+    sort(uni);
+
     let result = '';
     for (let i = 0; i < dup.length; i++) {
-        const count = dup[i].count || 0;  
+        const char = dup[i].char;
+        const count = dup[i].count;  
         for (let j = 0; j < count; j++) {
-            result += dup[i].char;
+            result += char;
         }
+    }
+    for(let i = 0; i<uni.length; i++){
+        result += uni[i].char;
     }
     return result;
 }
 
-console.log(orderFrequency("helloaaa"));  
+console.log(orderFrequency("hellooaaa"));  
