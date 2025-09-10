@@ -48,3 +48,4 @@ function orderFrequency(text) {
 }
 
 console.log(orderFrequency("hellooaaa"));  
+
