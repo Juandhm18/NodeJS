@@ -8,7 +8,6 @@ router.get('/', (req:Request, res:Response)=>{
     console.log("vamos ok")
     getBooks(req, res)
 })
-router.get('/', getBooks)
 router.get('/:id',getBookId)
 router.post('/', createBook)
 router.put('/:id', updateBooks)
