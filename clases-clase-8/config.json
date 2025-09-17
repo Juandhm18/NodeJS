@@ -1,0 +1,43 @@
+{
+  "app": {
+    "name": "Node.js Cron Services",
+    "version": "1.0.0",
+    "timezone": "America/Bogota"
+  },
+  "services": {
+    "test": true,
+    "email": true,
+    "backup": true
+  },
+  "email": {
+    "enabled": true,
+    "provider": "gmail",
+    "from": "tu_email@gmail.com",
+    "to": [
+      "destinatario@email.com"
+    ],
+    "schedules": {
+      "daily": "0 8 * * *",
+      "weekly": "0 9 * * 1"
+    }
+  },
+  "backup": {
+    "enabled": true,
+    "sourceDirs": [
+      "./src",
+      "./config",
+      "./logs"
+    ],
+    "backupDir": "./backups",
+    "maxBackups": 10,
+    "schedules": {
+      "daily": "0 2 * * *",
+      "weekly": "0 1 * * 0"
+    }
+  },
+  "monitoring": {
+    "statusReportInterval": 3600,
+    "briefReportInterval": 600,
+    "logRetentionDays": 30
+  }
+}
