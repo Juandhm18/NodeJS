@@ -4,8 +4,8 @@ import { validateLoan } from "../middlewares/validateDate";
 
 const router = Router();
 
-// Obtener todos los préstamos
 router.get("/", (req, res) => {
+// Obtener todos los préstamos
   res.json(loans);
 });
 

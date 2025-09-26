@@ -1,4 +1,4 @@
-import { response, type Request, type Response } from 'express';
+import { type Request, type Response } from 'express';
 import { handleHttp } from '../utils/error.handler.ts';
 import type { HttpErrorStatus } from '../types/types.ts';
 import { getBooks as getBooksService } from '../services/book.service.ts';
