@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Basic Plan",
+        "price": 9.99,
+        "bookLimit": 5,
+        "description": "Access to a limited selection of books."
+    },
+    {
+        "id": 2,
+        "name": "Premium Plan",
+        "price": 19.99,
+        "bookLimit": 10,
+        "description": "Access to a wider selection of books."
+    },
+    {
+        "id": 3,
+        "name": "Standard Plan",
+        "price": 14.99,
+        "bookLimit": 8,
+        "description": "Access to a moderate selection of books."
+    }
+]

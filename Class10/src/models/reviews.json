@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "rating": 5,
+        "comment": "Excellent book, highly recommend!",
+        "createdAt": "2023-10-01T10:00:00Z",
+        "bookID": 1,
+        "userID": 2
+    },
+    {
+        "id": 2,
+        "rating": 4,
+        "comment": "Great read, but a bit lengthy.",
+        "createdAt": "2023-10-02T11:30:00Z",
+        "bookID": 2,
+        "userID": 3
+    },
+    {
+        "id": 3,
+        "rating": 3,
+        "comment": "Average book, nothing special.",
+        "createdAt": "2023-10-03T09:15:00Z",
+        "bookID": 3,
+        "userID": 1
+    }
+]

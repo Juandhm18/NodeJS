@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "loanDate": "2023-10-01",
+        "returnDate": "2023-10-15",
+        "actualReturnDate": null,
+        "status": "late",
+        "bookID": 2,
+        "borrowerID": 2,
+        "ownerID": 1
+    },
+    {
+        "id": 2,
+        "loanDate": "2023-09-20",
+        "returnDate": "2023-10-04",
+        "actualReturnDate": "2023-10-03",
+        "status": "returned",
+        "bookID": 1,
+        "borrowerID": 3,
+        "ownerID": 2
+    },
+    {
+        "id": 3,
+        "loanDate": "2023-10-05",
+        "returnDate": "2023-10-19",
+        "actualReturnDate": null,
+        "status": "ongoing",
+        "bookID": 3,
+        "borrowerID": 1,
+        "ownerID": 3
+    }
+]

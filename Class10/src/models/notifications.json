@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "type": "overdue",
+        "message": "Your loan for 'Book Title' is overdue. Please return it as soon as possible.",
+        "read": false,
+        "createdAt": "2023-10-16T08:00:00Z",
+        "userID": 2
+    },
+    {
+        "id": 2,
+        "type": "subscription",
+        "message": "Your subscription is about to expire in 5 days. Please renew to continue enjoying our services.",
+        "read": false,
+        "createdAt": "2023-10-10T12:00:00Z",
+        "userID": 1
+    },
+    {
+        "id": 3,
+        "type": "review",
+        "message": "Your review for 'Another Book Title' has received a new comment.",
+        "read": true,
+        "createdAt": "2023-10-05T14:30:00Z",
+        "userID": 3
+    }
+]

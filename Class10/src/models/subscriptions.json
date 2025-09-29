@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "startDate": "2023-01-01",
+        "endDate": "2023-12-31",
+        "status": "active",
+        "planID": 1,
+        "userID": 1
+    },
+    {
+        "id": 2,
+        "startDate": "2023-06-01",
+        "endDate": "2024-05-31",
+        "status": "active",
+        "planID": 3,
+        "userID": 2
+    },
+    {
+        "id": 3,
+        "startDate": "2023-03-15",
+        "endDate": "2024-03-14",
+        "status": "inactive",
+        "planID": 2,
+        "userID": 3
+    }
+    
+]

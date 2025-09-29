@@ -1,0 +1,41 @@
+[
+    {
+        "id":1,
+        "title":"The Great Gatsby",
+        "author":"F. Scott Fitzgerald",
+        "ISBN":"9780743273565",
+        "genre":"Fiction",
+        "language":"English",
+        "coverURL":"https://example.com/greatgatsby.jpg",
+        "description":"A novel set in the Jazz Age that tells the story of Jay Gatsby's unrequited love for Daisy Buchanan.",
+        "status":"available",
+        "createdAt":"2023-10-01T10:00:00Z",
+        "ownerID":1
+    },
+    {
+        "id":2,
+        "title":"To Kill a Mockingbird",
+        "author":"Harper Lee",
+        "ISBN":"9780061120084",
+        "genre":"Fiction",
+        "language":"English",
+        "coverURL":"https://example.com/tokillamockingbird.jpg",
+        "description":"A novel about the serious issues of rape and racial inequality.",
+        "status":"available",
+        "createdAt":"2023-10-01T10:00:00Z",
+        "ownerID":2
+    },
+    {
+        "id":3,
+        "title":"1984",
+        "author":"George Orwell",
+        "ISBN":"9780451524935",
+        "genre":"Dystopian",
+        "language":"English",
+        "coverURL":"https://example.com/1984.jpg",
+        "description":"A novel that presents a terrifying vision of a totalitarian future.",
+        "status":"borrowed",
+        "createdAt":"2023-10-01T10:00:00Z",
+        "ownerID":3
+    }   
+]

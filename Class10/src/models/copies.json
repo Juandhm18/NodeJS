@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "condition":"new",
+        "availability":"available",
+        "bookID":1
+    },
+    {
+        "id":2,
+        "condition":"good",
+        "availability":"borrowed",
+        "bookID":2
+    },
+    {
+        "id":3,
+        "condition":"fair",
+        "availability":"available",
+        "bookID":3
+    }
+]
