@@ -5,23 +5,28 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+     "test": "node --loader ts-node/esm ./src/config/database.ts"  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
+    "mongoose": "^8.18.3",
     "node-cron": "^4.2.1",
-    "nodemailer": "^7.0.6"
+    "nodemailer": "^7.0.6",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
+    "@types/mongoose": "^5.11.96",
     "@types/node": "^24.5.2",
     "@types/node-cron": "^3.0.11",
     "@types/nodemailer": "^7.0.1",
+    "@types/sequelize": "^4.28.20",
     "express": "^5.1.0",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
