@@ -1,5 +1,5 @@
 import { Router ,type Request, type Response} from 'express';
-import { getNotifications, getNotificationsByID, postNotifications, putNotifications, deleteNotifications } from '../controllers/notifications.controllers.js';
+import { getNotifications, getNotificationsByID, postNotifications, putNotifications, deleteNotifications } from '../controllers/notifications.controllers.ts';
 
 const router:Router = Router();
 

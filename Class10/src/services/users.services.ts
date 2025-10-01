@@ -1,4 +1,4 @@
-import { type IUser } from "../interfaces/users.interface.js";
+import { type IUser } from "../interfaces/users.interface.ts";
 import { promises as fs } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";

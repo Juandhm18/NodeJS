@@ -1,4 +1,4 @@
-import { type ISubscription } from '../interfaces/subscriptions.interface.js';
+import { type ISubscription } from '../interfaces/subscriptions.interface.ts';
 import { promises as fs } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";

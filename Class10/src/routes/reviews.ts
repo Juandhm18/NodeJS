@@ -1,5 +1,5 @@
 import { Router ,type Request, type Response} from 'express';
-import { getReviews, getReviewsByID, postReviews, putReviews, deleteReviews } from '../controllers/reviews.controllers.js';
+import { getReviews, getReviewsByID, postReviews, putReviews, deleteReviews } from '../controllers/reviews.controllers.ts';
 
 const router:Router = Router();
 

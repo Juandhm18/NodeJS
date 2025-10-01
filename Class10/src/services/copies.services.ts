@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import { type ICopy } from "../interfaces/copies.interface.js";
+import { type ICopy } from "../interfaces/copies.interface.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const filepath = join(__dirname, "../modules/copies.json");

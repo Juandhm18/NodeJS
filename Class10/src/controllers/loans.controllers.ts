@@ -1,5 +1,5 @@
 import { type Request, type Response } from "express";
-import { getLoansService, getLoansByIDService, postLoansService, putLoansService, deleteLoansService } from "../services/loans.services.js";
+import { getLoansService, getLoansByIDService, postLoansService, putLoansService, deleteLoansService } from "../services/loans.services.ts";
 
 const getLoans = async (req:Request, res: Response): Promise<void> => {
     try {

@@ -1,5 +1,5 @@
-import { promises as fs } from "fs";
-import { type IBook } from "../interfaces/books.interface.js";
+/*import { promises as fs } from "fs";
+import { type IBook } from "../interfaces/books.interface.ts";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { get } from "http";
@@ -45,6 +45,34 @@ const deleteBooksService = async (id:number): Promise<boolean> => {
     books.splice(index, 1);
     await fs.writeFile(filepath, JSON.stringify(books, null, 4), "utf-8");
     return true;
+};
+
+export { getBooksService, getBooksByIDService, postBooksService, putBooksService, deleteBooksService };*/
+
+import { Book } from "../models/index.models.js";
+import type { BookCreation } from "../models/books.models.ts";
+
+const getBooksService = async () => {
+  return Book.findAll();
+};
+
+const getBooksByIDService = async (id: number) => {
+  return Book.findByPk(id);
+};
+
+const postBooksService = async (newBook: BookCreation) => {
+  return Book.create(newBook);
+};
+
+const putBooksService = async (id: number, updatedBook: Partial<BookCreation>) => {
+  const book = await Book.findByPk(id);
+  if (!book) return null;
+  return book.update(updatedBook);
+};
+
+const deleteBooksService = async (id: number) => {
+  const deleted = await Book.destroy({ where: { id } });
+  return deleted > 0;
 };
 
 export { getBooksService, getBooksByIDService, postBooksService, putBooksService, deleteBooksService };

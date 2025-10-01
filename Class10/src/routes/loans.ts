@@ -1,5 +1,5 @@
 import { Router ,type Request, type Response} from 'express';
-import { getLoans, getLoansByID, postLoans, putLoans, deleteLoans } from '../controllers/loans.controllers.js';
+import { getLoans, getLoansByID, postLoans, putLoans, deleteLoans } from '../controllers/loans.controllers.ts';
 
 const router:Router = Router();
 

@@ -1,4 +1,4 @@
-import { type ILoan } from "../interfaces/loans.interface.js";
+import { type ILoan } from "../interfaces/loans.interface.ts";
 import { promises as fs } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";

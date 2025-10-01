@@ -1,5 +1,5 @@
 import { type Request, type Response } from "express";
-import { getNotificationsService, getNotificationsByIDService, postNotificationsService, putNotificationsService, deleteNotificationsService } from "../services/notifications.services.js";
+import { getNotificationsService, getNotificationsByIDService, postNotificationsService, putNotificationsService, deleteNotificationsService } from "../services/notifications.services.ts";
 
 const getNotifications = async (req:Request, res: Response): Promise<void> => {
     try {

@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
-import { type IPlan } from "../interfaces/plans.interface.js";
+import { type IPlan } from "../interfaces/plans.interface.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const filepath = join(__dirname, "../models/plans.json");

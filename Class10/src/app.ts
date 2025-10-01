@@ -1,16 +1,16 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import { router as booksRouter } from "./routes/books.js";
-import { router as copiesRouter } from "./routes/copies.js";
-import { router as loansRouter } from "./routes/loans.js";
-import { router as notificationsRouter } from "./routes/notifications.js";
-import { router as plansRouter } from "./routes/plans.js";
-import { router as reviewsRouter } from "./routes/reviews.js";
-import { router as subscriptionsRouter } from "./routes/subscriptions.js";
-import { router as usersRouter } from "./routes/users.js";
-import logger from "./middlewares/logger.js";
-import "./jobs/minuteDue.job.js";
+import { router as booksRouter } from "./routes/books.ts";
+import { router as copiesRouter } from "./routes/copies.ts";
+import { router as loansRouter } from "./routes/loans.ts";
+import { router as notificationsRouter } from "./routes/notifications.ts";
+import { router as plansRouter } from "./routes/plans.ts";
+import { router as reviewsRouter } from "./routes/reviews.ts";
+import { router as subscriptionsRouter } from "./routes/subscriptions.ts";
+import { router as usersRouter } from "./routes/users.ts";
+import logger from "./middlewares/logger.ts";
+import "./jobs/minuteDue.job.ts";
 
 const app = express();
 const PORT = process.env.PORT || 3000;

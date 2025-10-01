@@ -1,7 +1,7 @@
 import { Router ,type Request, type Response} from 'express';
 import { deleteBooks, getBooks, getBooksByID, postBooks, putBooks } from '../controllers/books.controllers.js';
 import auth from '../middlewares/auth.js';
-import autor from '../middlewares/autor.ts';
+import autor from '../middlewares/autor.js';
 
 const router:Router = Router();
 

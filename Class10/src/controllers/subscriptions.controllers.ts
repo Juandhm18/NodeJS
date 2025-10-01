@@ -1,5 +1,5 @@
 import { type Request, type Response } from "express";
-import { getSubscriptionsService, getSubscriptionsByIDService, postSubscriptionsService, putSubscriptionsService, deleteSubscriptionsService } from "../services/subscriptions.services.js";
+import { getSubscriptionsService, getSubscriptionsByIDService, postSubscriptionsService, putSubscriptionsService, deleteSubscriptionsService } from "../services/subscriptions.services.ts";
 
 const getSubscriptions = async (req:Request, res: Response): Promise<void> => {
     try {

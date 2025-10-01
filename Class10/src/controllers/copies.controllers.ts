@@ -1,5 +1,5 @@
 import { type Request, type Response } from "express";
-import { getCopiesByIDService, getCopiesService, postCopiesService, putCopiesService, deleteCopiesService } from "../services/copies.services.js";
+import { getCopiesByIDService, getCopiesService, postCopiesService, putCopiesService, deleteCopiesService } from "../services/copies.services.ts";
 import { get } from "http";
 
 const getCopies = async ( req:Request, res:Response ): Promise<void> => {

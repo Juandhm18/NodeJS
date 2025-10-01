@@ -1,5 +1,5 @@
 import { type Request, type Response } from "express";
-import { getPlansService, getPlansByIDService, postPlansService, putPlansService, deletePlansService } from "../services/plans.services.js";
+import { getPlansService, getPlansByIDService, postPlansService, putPlansService, deletePlansService } from "../services/plans.services.ts";
 
 const getPlans = async (req:Request, res: Response): Promise<void> => {
     try {

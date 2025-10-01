@@ -1,5 +1,5 @@
 import { Router ,type Request, type Response} from 'express';
-import { getSubscriptions, getSubscriptionsByID, postSubscriptions, putSubscriptions, deleteSubscriptions } from '../controllers/subscriptions.controllers.js';
+import { getSubscriptions, getSubscriptionsByID, postSubscriptions, putSubscriptions, deleteSubscriptions } from '../controllers/subscriptions.controllers.ts';
 
 const router:Router = Router();
 
