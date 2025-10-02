@@ -20,4 +20,4 @@ const ProductCreation = new Schema<IProduct>(
     { timestamps: true }
 );
 
-export default model<IProduct>("Category", ProductCreation);
+export default model<IProduct>("Product", ProductCreation);
