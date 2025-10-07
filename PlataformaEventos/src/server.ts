@@ -3,6 +3,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { connectPostgres } from "./config/sequelize.config";
 import dbconnection from "./config/mongoose.config";
+import authRoutes from "./routes/auth.routes";
+import userRoutes from "./routes/user.routes";
+import eventRoutes from "./routes/event.routes";
+import inscriptionRoutes from "./routes/inscription.routes";
 
 dotenv.config();
 
@@ -15,7 +19,10 @@ app.get("/", (req, res) => {
     res.send("API de gestion de eventos");
 });
 
-
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/events", eventRoutes);
+app.use("/api/inscriptions", inscriptionRoutes);
 
 const startServer = async () => {
     try {
