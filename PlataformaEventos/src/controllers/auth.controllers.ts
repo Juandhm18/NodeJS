@@ -7,9 +7,12 @@ export const register = async ( req: Request, res: Response) => {
     try {
         const { name, email, password, rol} = req.body;
         const userExists = await User.findOne({ where: { email }});
+        //Se verifica si un usuario ya existe con este correo
         if (userExists) return res.status(400).json({ message: "El email ya existe"})
         
+        //encripta la contraseña
         const hashed = await hashPassword(password);
+        //crea un usuario
         const newUser = await User.create({ name, email, password: hashed, rol})
 
         res.status(201).json({ message: "Usuario creado", user: newUser})
@@ -21,13 +24,13 @@ export const register = async ( req: Request, res: Response) => {
 export const login = async ( req: Request, res: Response) => {
     try {
         const { email, password } = req.body;
-
+        //busca un usuario por email
         const user = await User.findOne({where: { email }});
         if (!user) return res.status(404).json({ message: "Usuario no encontrado" })
-
+        //valida la contraseña
         const valid = await comparePassword(password, user.password);
         if (!valid) return res.status(401).json({ message: "Contraseña incorrecta" })
-
+        //se genera un JWT
         const token = generateToken({ id: user.id, rol: user.rol })
 
         res.json({ message: "Login exitoso", token });
