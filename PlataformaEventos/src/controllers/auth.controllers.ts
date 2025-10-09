@@ -24,17 +24,23 @@ export const register = async ( req: Request, res: Response) => {
 export const login = async ( req: Request, res: Response) => {
     try {
         const { email, password } = req.body;
+        console.log("📩 Login con:", email, password);
         //busca un usuario por email
         const user = await User.findOne({where: { email }});
+        console.log("👤 Usuario encontrado:", user);
         if (!user) return res.status(404).json({ message: "Usuario no encontrado" })
         //valida la contraseña
         const valid = await comparePassword(password, user.password);
+        console.log("🔑 Contraseña válida:", valid);
         if (!valid) return res.status(401).json({ message: "Contraseña incorrecta" })
         //se genera un JWT
         const token = generateToken({ id: user.id, rol: user.rol })
-
+         console.log("🎟 Token generado:", token);
         res.json({ message: "Login exitoso", token });
     } catch (error) {
-        res.status(500).json({ message: "Error al iniciar usuario", error})
-    }
-}
+  console.error("Error exacto en login:", error);
+  res.status(500).json({
+    message: "Error al iniciar usuario",
+    error: error instanceof Error ? error.message : error,
+  });
+}};

@@ -1,12 +1,23 @@
-import { DataTypes, Model } from "sequelize";
+import { DataTypes, Model, Optional } from "sequelize";
 import sequelize from "../config/sequelize.config";
 
-export class User extends Model{
-    public id!: number;
-    public name!: string;
-    public email!: string;
-    public password!: string;
-    public rol!: "admin" | "organizador" | "Participante"
+export interface UserAttributes {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+  rol: "admin" | "organizador" | "participante";
+}
+
+export interface UserCreationAttributes extends Optional<UserAttributes, "id"> {}
+
+export class User extends Model<UserAttributes, UserCreationAttributes>
+  implements UserAttributes {
+  declare id: number;
+  declare name: string;
+  declare email: string;
+  declare password: string;
+  declare rol: "admin" | "organizador" | "participante";
 }
 
 User.init({
@@ -29,7 +40,7 @@ User.init({
         allowNull: false,
     },
     rol: {
-        type: DataTypes.ENUM("admin", "organizador", "Participante"),
+        type: DataTypes.ENUM("admin", "organizador", "participante"),
         defaultValue: "participante",
     },
 },{

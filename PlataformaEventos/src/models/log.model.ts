@@ -1,16 +1,24 @@
-import mongoose from "mongoose";
-import { required } from "zod/v4/core/util.cjs";
+import mongoose, { Schema, Document } from "mongoose";
 
-const logSchema = new mongoose.Schema({
+export interface ILog extends Document{
+    action: string;
+    UserID: number;
+    source: string;
+    date: Date;
+}
+
+const logSchema = new Schema<ILog>({
     action: {
         type: String,
         required: true
     },
     UserID: {
-        type: String
+        type: Number,
+        required: true
     },
-    recurso: {
-        type: String
+    source: {
+        type: String,
+        required: true
     },
     date: {
         type: Date,
@@ -18,4 +26,4 @@ const logSchema = new mongoose.Schema({
     },
 });
 
-export const Log = mongoose.model("log", logSchema);
+export const Log = mongoose.model<ILog>("log", logSchema);

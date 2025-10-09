@@ -35,8 +35,12 @@ Event.init({
         allowNull: false
     },
     OrganizatorID: {
-        type: DataTypes.NUMBER,
-        allowNull: false
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: "usuarios",
+            key: "id"
+        }
     }
 },{
     sequelize,

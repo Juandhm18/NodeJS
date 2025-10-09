@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { Event } from "../models/event.model";
 import { Op } from "sequelize";
+import { logAction } from "../utils/logAction";
 
 //busca por ubicacion o nombre
 export const getEvents = async (req: Request, res: Response) => {
@@ -17,6 +18,17 @@ export const getEvents = async (req: Request, res: Response) => {
 
     const eventos = await Event.findAll({ where });
     res.json(eventos);
+};
+
+export const getEventById = async ( req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const user = await Event.findByPk(id);
+        if(!user) return res.status(404).json({ message: "Evento no encontrado"})
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({ message: "Error al encontrar el Evento", error})
+    }
 };
 
 //Eventos futuros
@@ -42,6 +54,8 @@ export const createEvent = async (req: Request, res: Response) => {
       capacity,
       organizerId,
     });
+
+    await logAction("creó un evento", organizerId, `evento: ${evento.id}`);
 
     res.status(201).json({ message: "Evento creado", evento });
   } catch (error) {
