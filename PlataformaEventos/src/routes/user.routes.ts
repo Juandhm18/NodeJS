@@ -5,7 +5,7 @@ import { isAdmin } from "../middlewares/roles";
 
 const router = express.Router();
 
-router.get("/", verifyToken, isAdmin, getUsers);
+router.get("/", verifyToken, getUsers);
 router.get("/:id", verifyToken, isAdmin, getUserById);
 router.put("/:id", verifyToken, isAdmin, updateUser);
 router.delete("/:id", verifyToken, isAdmin, deleteUser);

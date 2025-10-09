@@ -21,6 +21,7 @@ export const verifyToken = ( req: Request, res: Response, next: NextFunction) =>
 }
         const decoded = jwt.verify(token, secret) as unknown as JwtPayload;
         (req as any).user = decoded;
+        next();
     } catch (error) {
         return res.status(401).json({ message: "Token invalido o expirado", error });
     }

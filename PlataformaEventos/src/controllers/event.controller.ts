@@ -27,7 +27,7 @@ export const getEventById = async ( req: Request, res: Response) => {
         if(!user) return res.status(404).json({ message: "Evento no encontrado"})
         res.json(user);
     } catch (error) {
-        res.status(500).json({ message: "Error al encontrar el Evento", error})
+        res.status(500).json({ message: "Error al encontrar el ", error})
     }
 };
 

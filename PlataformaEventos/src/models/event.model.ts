@@ -1,7 +1,7 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "../config/sequelize.config";
 import { User } from "./user.models";
-import { date } from "zod";
+
 
 export class Event extends Model{
     public id!: number;
