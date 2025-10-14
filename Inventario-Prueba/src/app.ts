@@ -31,6 +31,6 @@ async function main() {
     console.error("Error al conectar a la base de datos:", error);
   }
 }
-main();
+export default app;
 
 //

@@ -9,9 +9,9 @@ export const authorizeRoles = (...allowedRoles: string[]) => {
             return res.status(401).json({ message: "Usuario no autenticado" });
         }
 
-        if (!allowedRoles.includes(user.role)){
+        if (!allowedRoles.map(r => r.toLowerCase()).includes(user.role.toLowerCase())) {
             return res.status(403).json({ message: "Acceso denegado" });
-        }
+}
 
         next();
     };
