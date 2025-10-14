@@ -1,15 +1,21 @@
 import { Router } from "express";
 import { 
-    createInscription, 
-    getMyInscriptions, 
-    updateInscription 
+  createInscription, 
+  getMyInscriptions, 
+  updateInscription 
 } from "../controllers/inscription.controller";
-import { verifyToken } from "../middlewares/auth.middlewares";
+
+import { requireAuth } from "../middlewares/requireAuth";
 
 const router = Router();
 
-router.post("/", verifyToken, createInscription);
-router.get("/mine", verifyToken, getMyInscriptions);
-router.put("/:id", verifyToken, updateInscription);
+// Crear inscripción (usuario autenticado)
+router.post("/", requireAuth, createInscription);
+
+// Listar inscripciones propias
+router.get("/mine", requireAuth, getMyInscriptions);
+
+// Actualizar inscripción (podría ser extendido para controlar propietario)
+router.put("/:id", requireAuth, updateInscription);
 
 export default router;

@@ -1,7 +1,7 @@
-import express = require("express");
+import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import sequelize from "./config/sequelize.config";
+import sequelize, { connectPostgres } from "./config/sequelize.config";
 import dbconnection from "./config/mongoose.config";
 import authRoutes from "./routes/auth.routes";
 import userRoutes from "./routes/user.routes";
@@ -12,11 +12,16 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+// Middlewares
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || "http://localhost:5173",
+  credentials: true,
+}));
 app.use(express.json());
 
-app.get("/", (req, res) => {
-    res.send("API de gestion de eventos");
+// Rutas base
+app.get("/", (_, res) => {
+  res.send("API de gestión de eventos en funcionamiento");
 });
 
 app.use("/api/auth", authRoutes);
@@ -24,25 +29,28 @@ app.use("/api/users", userRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api/inscriptions", inscriptionRoutes);
 
+// Función principal
 const startServer = async () => {
-    try {
-        await sequelize.query(`DROP TYPE IF EXISTS "enum_usuarios_rol" CASCADE;`);
-        console.log("Tipo ENUM 'enum_usuarios_rol' eliminado (si existía)");
+  try {
+    // Conexión a PostgreSQL
+    await connectPostgres();
 
-        // Sincronizar modelos
-        await sequelize.sync({ force: false });
-        console.log("Base de datos sincronizada");
+    // Sincronizar modelos (usar alter o force, no ambos)
+    await sequelize.sync({ alter: true });
+    console.log("Modelos sincronizados correctamente con PostgreSQL");
 
-        await sequelize.sync({alter: true});
-        await dbconnection();
+    // Conexión a MongoDB
+    await dbconnection();
 
-        const PORT = process.env.PORT || 3000;
-        app.listen(PORT, () => {
-        console.log(`Servido conrriendo en puerto ${PORT}`)
-});
-    } catch (error) {
-        console.log("ERROR iniciando servidor:", error);
-    }
+    // Levantar servidor
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      console.log(`Servidor corriendo en el puerto ${PORT}`);
+    });
+  } catch (error) {
+    console.error("Error iniciando servidor:", (error as Error).message);
+    process.exit(1); // Detiene la app si hay error crítico de conexión
+  }
 };
 
 startServer();
